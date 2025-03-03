@@ -1,0 +1,44 @@
+{
+	"name": "Universal Base Devcontainer",
+	"image": "mcr.microsoft.com/devcontainers/universal",
+
+	// 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
+	 "features": {
+        "ghcr.io/devcontainers-extra/features/ansible:2": {},
+        "ghcr.io/hspaans/devcontainer-features/ansible-lint:1": {},
+        "ghcr.io/devcontainers-extra/features/starship:1": {},
+        "ghcr.io/devcontainers-extra/features/fzf:1": {}
+	 },
+
+	// 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+    "postCreateCommand": "echo 'eval \"$(starship init bash)\"' >> ~/.bashrc && echo '[ -f ~/.fzf.bash ] && source ~/.fzf.bash' >> ~/.bashrc",
+	// 👇 Configure tool-specific properties.
+	"customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.codespaces",
+                "github.vscode-github-actions",
+                "GitHub.copilot-nightly",
+                "GitHub.copilot-chat-nightly",
+                "github.copilot-workspace",
+                "GitHub.vscode-pull-request-github",
+                "GitHub.remotehub",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.autopep8",
+                "golang.Go"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "args": ["-l"]
+                    }
+                }
+            }
+    }
+	// 👇 Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
